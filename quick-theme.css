@@ -1,0 +1,57 @@
+/* Supplied palette: cyan accent #21d3fe and deep navy #071a38. */
+.quick-menu,.mobile-bar{
+  --gradient-main:linear-gradient(145deg,#21d3fe 0%,#5297ff 52%,#9144fa 100%);
+  --cyan:#21d3fe;--violet:#9144fa;
+  background:rgba(12,40,84,.97);
+  border-color:rgba(33,211,254,.28);
+}
+.quick-menu{border-width:1.8px}
+.quick-menu>a,.quick-menu>button{background:#071a38;color:#e9ebf0;border-bottom-color:rgba(33,211,254,.16)}
+.quick-menu span{color:#c5c8ce}
+.quick-menu>.quick-reserve{background:var(--gradient-main);color:#fff}
+.quick-menu>[data-scroll-top]{overflow:hidden;border-bottom:0;border-radius:0 0 12px 12px}
+.quick-menu .quick-reserve i,.quick-menu .quick-reserve span{color:#fff}
+.quick-menu>a:hover,.quick-menu>button:hover{background:#232831;color:#21d3fe}
+.quick-menu>.quick-reserve:hover{background:var(--gradient-main);filter:brightness(1.05);color:#fff}
+.quick-menu>a:focus-visible,.quick-menu>button:focus-visible,.mobile-bar>a:focus-visible,.mobile-bar>button:focus-visible{outline:2px solid #21d3fe;outline-offset:-3px}
+.quick-booking-menu,.quick-chat-menu,.quick-self-menu,.mobile-booking-menu,.mobile-chat-menu,.mobile-self-menu{--popup-surface:#152b55;--popup-border:#526a8b;background:var(--popup-surface);border-color:var(--popup-border)}
+.quick-booking-menu a,.quick-chat-menu a,.quick-self-menu a,.mobile-booking-menu a,.mobile-chat-menu a,.mobile-self-menu a{color:#e9ebf0;border-color:rgba(33,211,254,.2);background:rgba(33,211,254,.05)}
+.quick-booking-menu a:hover,.quick-booking-menu a:focus-visible,.quick-chat-menu a:hover,.quick-chat-menu a:focus-visible,.quick-self-menu a:hover,.quick-self-menu a:focus-visible,.mobile-booking-menu a:active,.mobile-chat-menu a:active,.mobile-self-menu a:active{background:var(--gradient-main);color:#071a38}
+.quick-self-menu a:hover,.quick-self-menu a:focus-visible,.mobile-self-menu a:active{color:#fff}
+@media(max-width:720px){
+  html{background:#071a38}
+  body{padding-bottom:0}
+  .mobile-bar>a,.mobile-bar>button{color:#c5c8ce}
+  .mobile-bar>a>i,.mobile-bar>button>i{color:#e9ebf0}
+  .mobile-bar .mobile-reserve{color:#fff}
+  .mobile-bar .mobile-reserve>i{color:#fff;background:var(--gradient-main);border-color:#dcf7ff;animation:limeReservePulse 2.4s ease-in-out infinite}
+  .mobile-bar>a:active,.mobile-bar>.mobile-chat:active{color:#21d3fe}
+}
+@keyframes limeReservePulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(33,211,254,.13),0 8px 22px rgba(82,151,255,.24)}
+  50%{box-shadow:0 0 0 8px rgba(33,211,254,.07),0 10px 28px rgba(82,151,255,.34)}
+}
+@media(prefers-reduced-motion:reduce){.mobile-bar .mobile-reserve>i{animation:none}}
+
+/* Use the same crisp popup pointers on the main pages and self-check page. */
+.quick-booking-menu,.quick-chat-menu,.quick-self-menu{right:calc(100% + 12px)}
+.quick-booking-menu::before,.quick-chat-menu::before,.quick-self-menu::before,
+.quick-booking-menu::after,.quick-chat-menu::after,.quick-self-menu::after{
+  content:"";position:absolute;width:0;height:0;left:auto;bottom:auto;transform:none;background:none;border-radius:0;
+  border:9px solid transparent;border-right:0;border-left-color:var(--popup-border);right:-9px;top:24px;pointer-events:none
+}
+.quick-booking-menu::after,.quick-chat-menu::after,.quick-self-menu::after{border-width:8px;border-right:0;border-left-color:var(--popup-surface);right:-8px;top:25px}
+@media(max-width:720px){
+  .mobile-booking-menu::before,.mobile-chat-menu::before,.mobile-self-menu::before,
+  .mobile-booking-menu::after,.mobile-chat-menu::after,.mobile-self-menu::after{
+    content:"";position:absolute;width:0;height:0;top:auto;transform:none;background:none;border-radius:0;
+    border:9px solid transparent;border-bottom:0;border-top-color:var(--popup-border);bottom:-9px;pointer-events:none
+  }
+  .mobile-booking-menu::before{left:calc(50% - 9px);right:auto}
+  .mobile-self-menu::before{left:calc(50% - 9px);right:auto}
+  .mobile-chat-menu::before{right:28px;left:auto}
+  .mobile-booking-menu::after,.mobile-chat-menu::after,.mobile-self-menu::after{border-width:8px;border-bottom:0;border-top-color:var(--popup-surface);bottom:-8px}
+  .mobile-booking-menu::after{left:calc(50% - 8px);right:auto}
+  .mobile-self-menu::after{left:calc(50% - 8px);right:auto}
+  .mobile-chat-menu::after{right:29px;left:auto}
+}
